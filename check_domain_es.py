@@ -115,13 +115,11 @@ def main(argv):
     # New Request
     # Whoises.es
     c.setopt(c.URL, 'http://www.whoises.com/%s.%s' % (domain, extension[1:len(extension)]))
-    print(domain, extension[1:len(extension)])
 
     #c.setopt(c.POST, 1)
     c.setopt(pycurl.SSL_VERIFYPEER,0)
     c.setopt(c.WRITEFUNCTION, t.body_callback)
     c.perform()
-    print "1"
     c.close()
 
     if t.contents.find("No match for domain") > 1:
